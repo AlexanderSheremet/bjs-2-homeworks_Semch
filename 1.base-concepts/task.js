@@ -22,14 +22,14 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   ) {
     return false;
   } else if ( 
-    Number.isNaN(contribution) === true || typeof contribution != "number" || percent < 0
+    Number.isNaN(contribution) === true || typeof contribution != "number" || contribution < 0
   ) {
     return false;
   } else if (
-    Number.isNaN(amount) === true || typeof amount != "number" || percent < 0) {
+    Number.isNaN(amount) === true || typeof amount != "number" || amount < 0) {
     return false;
   } else if (
-    Number.isNaN(countMonths) === true || typeof countMonths != "number" || percent < 0
+    Number.isNaN(countMonths) === true || typeof countMonths != "number" || countMonths < 0
   ) {
     return false;
   } else {
