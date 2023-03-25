@@ -17,31 +17,25 @@ function solveEquation(a, b, c) {
 solveEquation;
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   let mortgage;
-  if (
-    Number.isNaN(percent) === true ||
-    typeof percent != "number" ||
-    percent < 0
+  if ( 
+    Number.isNaN(percent) === true || typeof percent != "number" || percent < 0
+  ) {
+    return false;
+  } else if ( 
+    Number.isNaN(contribution) === true || typeof contribution != "number" || contribution < 0
   ) {
     return false;
   } else if (
-    Number.isNaN(contribution) === true ||
-    typeof contribution != "number"
-  ) {
-    return false;
-  } else if (Number.isNaN(amount) === true || typeof amount != "number") {
+    Number.isNaN(amount) === true || typeof amount != "number" || amount < 0) {
     return false;
   } else if (
-    Number.isNaN(countMonths) === true ||
-    typeof countMonths != "number"
+    Number.isNaN(countMonths) === true || typeof countMonths != "number" || countMonths < 0
   ) {
     return false;
   } else {
     let bodyCredit = Number(amount) - Number(contribution);
     let monthPercent = percent / 12 / 100;
-    let monthPayment =
-      bodyCredit *
-      (monthPercent +
-        monthPercent / (Math.pow(1 + monthPercent, countMonths) - 1));
+    let monthPayment = bodyCredit * (monthPercent + monthPercent / (Math.pow(1 + monthPercent, countMonths) - 1));
     mortgage = Number((monthPayment * countMonths).toFixed(2));
   }
   return mortgage;
